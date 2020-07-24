@@ -7,12 +7,10 @@ const passport = require('passport')
 const cors = require('cors')
 require('../config/database')
 
-let app = express()
+let app = express(),
+    personRoutes = require('../routes/person.routes'),
+    congressRoutes = require('../routes/congress.routes')
 
-/**
- * Import Routes
- */
-//..............
 
 let session = require('express-session')
 let sess = {
@@ -56,6 +54,9 @@ app.use(session(sess))
  */
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use('/api',personRoutes)
+app.use('/api',congressRoutes)
 
 /**
  * Export Routes
