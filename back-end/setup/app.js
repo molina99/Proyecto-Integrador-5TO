@@ -12,7 +12,7 @@ let app = express()
 /**
  * Import Routes
  */
-//..............
+let postulantRoutes = require('../routes/postulant.router')
 
 let session = require('express-session')
 let sess = {
@@ -60,6 +60,6 @@ app.use(passport.session())
 /**
  * Export Routes
  */
-//..............
+app.use('/api', postulantRoutes)
 
 module.exports = app
