@@ -15,9 +15,9 @@ api.get('/get', postulantController.getAll)
 api.post('/insertOne', postulantController.insertData)
 
 //actualizar postulante
-api.put('/updateOne', postulantController.updateData)
+api.put('/updateOne/:id', postulantController.updateData)
 
 //borrar postulante
-api.delete('/deleteOne', postulantController.deleteData)
+api.delete('/deleteOne/:id', postulantController.deleteData)
 
 module.exports = api;

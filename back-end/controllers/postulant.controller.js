@@ -11,12 +11,12 @@ let prueba = (req, res) => {
 
 //obtener todos
 let getAll = async (req, res) => {
-    Postulant.find()
-        .then(data => {
+    let postulant = await Postulant.find()
+        .then((postulant) => {
             res.status(200).json({
                 transaction: true,
-                data,
-                msg: `Postulantes obtenidos ${data.length}`
+                postulant,
+                msg: `Postulantes obtenidos ${postulant.length}`
             })
         })
         .catch(err => {
@@ -51,15 +51,15 @@ let insertData = async (req, res) => {
 }
 
 //acualizar Postulant
-let updateData = (req, res) => {
+let updateData = async (req, res) => {
     let id = req.params.id
     let postulant = req.body.postulant
-
-    Postulant.updateOne({ '_id': id }, { $set: postulant })
-        .then(data => {
+    console.log(postulant)
+    let updateData = await Postulant.updateOne({ '_id': id }, { $set: postulant })
+        .then((updateData) => {
             res.status(200).json({
                 transaction: true,
-                data,
+                updateData,
                 msg: 'postulante actualizado..'
             })
         })
@@ -75,11 +75,11 @@ let updateData = (req, res) => {
 //borar Postulant
 let deleteData = async (req, res) => {
     let id = req.params.id
-    Postulant.deleteOne({ '_id': id })
-        .then(data => {
+    let deleteData = await  Postulant.deleteOne({ '_id': id })
+        .then((deleteData) => {
             res.status(200).json({
                 transaction: true,
-                data,
+                deleteData,
                 msg: 'postulante borrado..'
             })
         })
@@ -100,3 +100,4 @@ module.exports = {
     updateData,
     deleteData
 }
+

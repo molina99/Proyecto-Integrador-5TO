@@ -6,6 +6,7 @@ const mongoose = require('mongoose'),
 
     PostulantModel = new Schema(
         {
+            _id: { type: String},
             projectTittle: { type: String },
             projectSummary: { type: String },
             summaryPdf: { type: String },
