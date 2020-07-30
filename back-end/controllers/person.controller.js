@@ -2,6 +2,7 @@
 'use strict'
 const Person = require('../models/Person')
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 
 let getPersonById = async (req, res) => {
     let id = req.params.id
@@ -75,13 +76,15 @@ let putPerson = async (req, res) => {
     }
 }
 
-let deletePerson = async (req, res) => {
+let disablePerson = async (req, res) => {
     let id = req.params.id
-    let deletePerson = await Person.deleteOne({_id: id})
-    if (deletePerson) {
+    let person = req.body
+    console.log(person)
+    let disablePerson = await Person.updateOne({_id: id}, {$set: {status: person.status}})
+    if (disablePerson) {
         res.status(200).json({
             ok: true,
-            sms: 'Usuario eliminado'
+            sms: 'Usuario actualizado'
         })
     } else {
         res.status(500).json({
@@ -95,7 +98,7 @@ let login = async (req, res) => {
     let person = req.body.person
     let personLog = await Person.find({email: person.email})
     if (personLog.length > 0) {
-        if (person.password === personLog[0].password) {
+        if (bcrypt.compareSync(person.password, personLog[0].password)) {
             let token = jwt.sign(person, process.env.KEY_JWT, {
                 algorithm: 'HS256',
                 expiresIn: parseInt(process.env.TIME)
@@ -117,6 +120,6 @@ module.exports = {
     getPersons,
     postPerson,
     putPerson,
-    deletePerson,
+    disablePerson,
     login
 }

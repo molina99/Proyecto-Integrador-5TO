@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "tlw": "postcss src/assets/tailwind.css -o src/assets/build/tailwind.css"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +20,10 @@
     "@angular/platform-browser": "~8.0.1",
     "@angular/platform-browser-dynamic": "~8.0.1",
     "@angular/router": "~8.0.1",
+    "autoprefixer": "^9.8.5",
+    "postcss-cli": "^7.1.1",
     "rxjs": "~6.4.0",
+    "tailwindcss": "^1.5.2",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },
