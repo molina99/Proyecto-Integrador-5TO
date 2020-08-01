@@ -3,13 +3,16 @@
 const Postulant = require('../models/postulantModel'),
     fs = require('fs')
 
-//prueba de conexion
+/** 
+ *prueba de conexion 
+*/
 let prueba = (req, res) => {
     res.status(200).send('Zero')
 }
 
-
-//obtener todos
+/**
+ *obtener Postulantes 
+ */
 let getAll = async (req, res) => {
     let postulant = await Postulant.find()
         .then((postulant) => {
@@ -28,8 +31,10 @@ let getAll = async (req, res) => {
         })
 }
 
-// insertar Postulant
-let insertData = async (req, res) => {
+/** 
+ * insertar Postulant
+*/
+let insertPostulant = async (req, res) => {
     let postulant = req.body.postulant
     console.log(postulant)
     let newPostulant = new Postulant(postulant)
@@ -50,8 +55,10 @@ let insertData = async (req, res) => {
         })
 }
 
-//acualizar Postulant
-let updateData = async (req, res) => {
+/** 
+ * acualizar Postulant 
+*/
+let updatePostulant = async (req, res) => {
     let id = req.params.id
     let postulant = req.body.postulant
     console.log(postulant)
@@ -72,8 +79,10 @@ let updateData = async (req, res) => {
         })
 }
 
-//borar Postulant
-let deleteData = async (req, res) => {
+/** 
+ * borar Postulant
+*/
+let deletePostulant = async (req, res) => {
     let id = req.params.id
     let deleteData = await  Postulant.deleteOne({ '_id': id })
         .then((deleteData) => {
@@ -96,8 +105,8 @@ let deleteData = async (req, res) => {
 module.exports = {
     prueba,
     getAll,
-    insertData,
-    updateData,
-    deleteData
+    insertPostulant,
+    updatePostulant,
+    deletePostulant
 }
 

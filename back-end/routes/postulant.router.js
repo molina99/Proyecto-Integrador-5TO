@@ -5,19 +5,29 @@ let api = express.Router()
     
 const postulantController = require('../controllers/postulant.controller');
 
-//prueba de conexion
+/** 
+ * prueba de conexion
+*/
 api.get('/prueba', postulantController.prueba)
 
-//obtiene datos
+/** 
+ * Ruta Obtiene Postualntes
+*/
 api.get('/get', postulantController.getAll)
 
-//insertar postulante
-api.post('/insertOne', postulantController.insertData)
+/** 
+ * Ruta Insertar Postulante
+*/
+api.post('/insertOne', postulantController.insertPostulant)
 
-//actualizar postulante
-api.put('/updateOne/:id', postulantController.updateData)
+/** 
+ * Ruta Actualizar Postulante
+*/
+api.put('/updateOne/:id', postulantController.updatePostulant)
 
-//borrar postulante
-api.delete('/deleteOne/:id', postulantController.deleteData)
+/**
+ * Ruta Borrar Postulante
+*/
+api.delete('/deleteOne/:id', postulantController.deletePostulant)
 
 module.exports = api;
