@@ -15,6 +15,7 @@ let app = express()
 let congressRoutes = require('../routes/congress.routes')
 let personRoutes = require('../routes/person.routes')
 let postulationRoutes = require('../routes/postulation.routes')
+let linksRoutes = require('../routes/links.routes')
 
 let session = require('express-session')
 let sess = {
@@ -65,5 +66,6 @@ app.use(passport.session())
 app.use('/api', congressRoutes)
 app.use('/api', personRoutes)
 app.use('/api', postulationRoutes)
+app.use('/api', linksRoutes)
 
 module.exports = app

@@ -1,8 +1,6 @@
 ;
 'use strict'
 const Congress = require('../models/Congress')
-const fs = require('fs')
-const path = require('path')
 
 let getCongress = async (req, res) => {
     let congress = await Congress.find()
@@ -22,8 +20,6 @@ let getCongress = async (req, res) => {
 }
 
 let postCongress = async (req, res) => {
-    // let logo = req.files.logo //TODO: Solo para pruebas del servidor (quitar en prod)
-    // let publicity_img = req.files.publicity_image //TODO: Solo para pruebas del servidor (quitar en prod)
     let congress = req.body.congress
     let newCongress = new Congress(congress)
     await newCongress.save()
