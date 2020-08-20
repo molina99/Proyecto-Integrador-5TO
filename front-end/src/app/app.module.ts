@@ -9,6 +9,8 @@ import { HeaderComponent } from './home/header/header.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { RegisterComponent } from './register/register.component';
 import { PageNotFoundComponent } from './home/page-not-found/page-not-found.component';
+import { MenuComponent } from './menu/menu.component';
+import { OrganizerComponent } from './organizer/organizer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { PageNotFoundComponent } from './home/page-not-found/page-not-found.comp
     HeaderComponent,
     FooterComponent,
     RegisterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MenuComponent,
+    OrganizerComponent
   ],
   imports: [
     BrowserModule,

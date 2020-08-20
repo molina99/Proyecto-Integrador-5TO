@@ -1,0 +1,325 @@
+<!-- component -->
+<div class="h-screen w-full flex overflow-hidden">
+	<nav class="flex flex-col bg-gray-200 dark:bg-gray-900 w-64 px-12 pt-4 pb-6">
+		<!-- SideNavBar -->
+
+		<div class="flex flex-row border-b items-center justify-between pb-2">
+			<!-- Hearder -->
+			<span class="text-lg font-semibold capitalize dark:text-gray-300">
+				SCOC
+				
+			</span>
+			<img class="h-12 w-12 rounded-full object-cover" src="/assets/img/dot-logo.png"
+			alt="enoshima profile" />
+			<span class="relative ">
+				<a class="hover:text-green-500 dark-hover:text-green-300
+					text-gray-600 dark:text-gray-300" href="inbox/">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round">
+					</svg>
+				</a>
+
+			</span>
+
+		</div>
+
+		<div class="mt-8">
+			<!-- User info -->
+			<h2 class="mt-4 text-xl dark:text-gray-300 font-extrabold capitalize">
+				Hola Usuario :v
+			</h2>
+			<span class="text-sm dark:text-gray-300">
+				<span class="font-semibold text-green-600 dark:text-green-300">
+					Admin
+				</span>
+				id789038
+			</span>
+		</div>
+		<!-- plantillas-->
+		<ul class="mt-2 text-gray-600">
+			<!-- Links -->
+			<li class="mt-8">
+				<a href="#home" class="flex ">
+					<svg class="fill-current h-5 w-5 dark:text-gray-300" viewBox="0 0 24 24">
+						<path d="M16 20h4v-4h-4m0-2h4v-4h-4m-6-2h4V4h-4m6
+							4h4V4h-4m-6 10h4v-4h-4m-6 4h4v-4H4m0 10h4v-4H4m6
+							4h4v-4h-4M4 8h4V4H4v4z"></path>
+					</svg>
+					<span class="ml-2 capitalize font-medium text-black
+						dark:text-gray-300">
+						Congresos
+					</span>
+				</a>
+			</li>
+
+			<li class="mt-8">
+				<a href="#home" class="flex">
+					<svg class="fill-current h-5 w-5 dark:text-gray-300" viewBox="0 0 24 24">
+						<path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2
+							2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0
+							00-2-2h-1V1m-1 11h-5v5h5v-5z"></path>
+					</svg>
+					<span class="ml-2 capitalize font-medium text-black
+						dark:text-gray-300">
+						Posulación
+					</span>
+				</a>
+			</li>
+
+			<li class="mt-8 shadow py-2 bg-white dark:bg-gray-200 rounded-lg
+				-ml-4">
+				<a href="#home" class="flex pl-4">
+					<svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+						<path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
+							014-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4
+							8-4z"></path>
+					</svg>
+					<span class="ml-2 capitalize font-medium">Usuarios</span>
+				</a>
+			</li>
+
+			<li class="mt-8">
+				<a href="#home" class="flex">
+					<svg class="fill-current h-5 w-5 dark:text-gray-300" viewBox="0 0 24 24">
+						<path d="M12 13H7v5h5v2H5V10h2v1h5v2M8
+							4v2H4V4h4m2-2H2v6h8V2m10 9v2h-4v-2h4m2-2h-8v6h8V9m-2
+							9v2h-4v-2h4m2-2h-8v6h8v-6z"></path>
+					</svg>
+					<span class="ml-2 capitalize font-medium text-black
+						dark:text-gray-300">
+						Política
+					</span>
+				</a>
+			</li>
+
+		</ul>
+
+		<div class="mt-auto flex items-center text-red-700 dark:text-red-400">
+			<!-- important action -->
+			<a href="#home" class="flex items-center">
+				<svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+					<path d="M16 17v-3H9v-4h7V7l5 5-5 5M14 2a2 2 0 012
+						2v2h-2V4H5v16h9v-2h2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V4a2 2
+						0 012-2h9z"></path>
+				</svg>
+				<span class="ml-2 capitalize font-medium"> Cerrar sesión</span>
+			</a>
+
+		</div>
+	</nav>
+	<main class="flex-1 flex flex-col bg-gray-100 dark:bg-gray-700 transition
+		duration-500 ease-in-out overflow-y-auto">
+		<div class="mx-10 my-2">
+
+			<h2 class="my-4 text-4xl font-semibold dark:text-gray-400">
+				Lista de Postulantes
+			</h2>
+
+			<div class="mt-6 flex justify-between text-gray-600 dark:text-gray-400">
+				<!-- List sorting -->
+
+				<div class="ml-10 pl-2 flex capitalize">
+					<!-- Left side -->
+					<span class="ml-8 flex items-center">
+						Nombre
+						<svg class="ml-1 h-5 w-5 fill-current text-green-500
+							dark:text-green-200" viewBox="0 0 24 24">
+							<path d="M18 21l-4-4h3V7h-3l4-4 4 4h-3v10h3M2
+								19v-2h10v2M2 13v-2h7v2M2 7V5h4v2H2z"></path>
+						</svg>
+					</span>
+					<span class="ml-20 flex items-center">
+						Proyecto
+						<svg class="ml-1 h-5 w-5 fill-current" viewBox="0 0 24 24">
+							<path d="M18 21l-4-4h3V7h-3l4-4 4 4h-3v10h3M2
+								19v-2h10v2M2 13v-2h7v2M2 7V5h4v2H2z"></path>
+						</svg>
+					</span>
+				</div>
+				<br>
+				<div class="mr-12 flex capitalize">
+					<!-- Right side -->
+
+					<span class="mr-16 pr-1 flex items-center">
+						Área
+						<svg class="ml-1 h-5 w-5 fill-current" viewBox="0 0 24 24">
+							<path d="M18 21l-4-4h3V7h-3l4-4 4 4h-3v10h3M2
+								19v-2h10v2M2 13v-2h7v2M2 7V5h4v2H2z"></path>
+						</svg>
+					</span>
+
+					<span class="mr-17 pr-2 flex items-center">
+						Hora Inicio
+						<svg class="ml-1 h-5 w-5 fill-current" viewBox="0 0 24 24">
+							<path d="M18 21l-4-4h3V7h-3l4-4 4 4h-3v10h3M2
+								19v-2h10v2M2 13v-2h7v2M2 7V5h4v2H2z"></path>
+						</svg>
+					</span>
+
+					<span class="mr-12 flex items-center">
+						Hora Fin
+						<svg class="ml-1 h-5 w-5 fill-current" viewBox="0 0 24 24">
+							<path d="M18 21l-4-4h3V7h-3l4-4 4 4h-3v10h3M2
+								19v-2h10v2M2 13v-2h7v2M2 7V5h4v2H2z"></path>
+						</svg>
+					</span>
+					<span class="mr-16 flex items-center">
+						Fecha
+						<svg class="ml-1 h-5 w-5 fill-current" viewBox="0 0 24 24">
+							<path d="M18 21l-4-4h3V7h-3l4-4 4 4h-3v10h3M2
+								19v-2h10v2M2 13v-2h7v2M2 7V5h4v2H2z"></path>
+						</svg>
+					</span>
+				</div>
+
+			</div>
+			<div class="mt-2 flex px-4 py-4 justify-between bg-white
+				dark:bg-gray-600 shadow-xl rounded-lg cursor-pointer ">
+				<!-- Card -->
+
+				<div class="flex justify-between">
+					<!-- Left side -->
+
+					<img class="h-12 w-12 rounded-full object-cover"
+						src="https://vignette.wikia.nocookie.net/codegeass/images/4/43/Geass.jpg/revision/latest/scale-to-width-down/340?cb=20130315201154&path-prefix=es"
+						alt="" />
+
+					<div class="ml-4 flex flex-col capitalize text-gray-600
+						dark:text-gray-400">
+						<span>nombre</span>
+						<span class="mt-2 text-black dark:text-gray-200">
+							Lola Mento
+						</span>
+					</div>
+
+					<div class="ml-12 flex flex-col capitalize text-gray-600
+						dark:text-gray-400">
+						<span>Título</span>
+						<span class="mt-2 text-black dark:text-gray-200">
+							<a>el arte de la música</a>
+						</span>
+
+					</div>
+
+				</div>
+
+				<div class="flex">
+					<!-- Rigt side -->
+
+					<div class="mr-16 flex flex-col capitalize text-gray-600
+						dark:text-gray-400">
+						<span>proyecto</span>
+						<span class="mt-2 text-black dark:text-gray-200">
+							Música
+						</span>
+
+					</div>
+
+					<div class="mr-16 flex flex-col capitalize text-gray-600
+						dark:text-gray-400">
+						<span>inicio</span>
+						<span class="mt-2 text-black dark:text-gray-200">
+							10:00 AM
+						</span>
+
+					</div>
+
+					<div class="mr-16 flex flex-col capitalize text-gray-600
+						dark:text-gray-400">
+						<span>fin</span>
+						<span class="mt-2 text-black dark:text-gray-200">
+							12:00 PM
+						</span>
+
+					</div>
+
+					<div class="mr-8 flex flex-col capitalize text-gray-600
+						dark:text-gray-400">
+						<span>fecha final</span>
+						<span class="mt-2 text-green-400 dark:text-green-200">
+							20.02.2020
+						</span>
+						<span class="text-red-600 dark:text-red-400">
+							07.02.2020 11:00
+						</span>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="mt-8 flex px-4 py-4 justify-between bg-white
+				dark:bg-gray-600 shadow-xl rounded-lg cursor-pointer">
+				<!-- Card -->
+
+				<div class="flex justify-between">
+					<!-- Left side -->
+
+					<img class="h-12 w-12 rounded-full object-cover"
+						src="https://i1.wp.com/www.sopitas.com/wp-content/uploads/2016/05/zero-portrait-e1462499728617.jpg"
+						alt="" />
+
+					<div class="ml-4 flex flex-col capitalize text-gray-600
+						dark:text-gray-400">
+						<span>nombre</span>
+						<span class="mt-2 text-black dark:text-gray-200">
+							Aquiles Castro
+						</span>
+					</div>
+
+					<div class="ml-12 flex flex-col capitalize text-gray-600
+						dark:text-gray-400">
+						<span>Título </span>
+						<span class="mt-2 text-black dark:text-gray-200">
+							<a>creación de robot</a>
+						</span>
+
+					</div>
+
+				</div>
+
+				<div class="flex">
+					<!-- Rigt side -->
+
+					<div class="mr-16 flex flex-col capitalize text-gray-600
+						dark:text-gray-400">
+						<span>proyecto</span>
+						<span class="mt-2 text-black dark:text-gray-200">
+							Electrónica
+						</span>
+					</div>
+
+					<div class="mr-16 flex flex-col capitalize text-gray-600
+						dark:text-gray-400">
+						<span>inicio</span>
+						<span class="mt-2 text-black dark:text-gray-200">
+							13:00PM
+						</span>
+					</div>
+
+					<div class="mr-16 flex flex-col capitalize text-gray-600
+						dark:text-gray-400">
+						<span>Fin</span>
+						<span class="mt-2 text-yellow-600 dark:text-yellow-400">
+							15:30PM
+						</span>
+					</div>
+
+					<div class="mr-8 flex flex-col capitalize text-gray-600
+						dark:text-gray-400">
+						<span>fecha final </span>
+						<span class="mt-2 text-green-400 dark:text-green-200">
+							20.02.2020 11:00
+						</span>
+					</div>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</main>
+
+</div>

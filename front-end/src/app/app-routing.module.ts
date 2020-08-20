@@ -1,16 +1,20 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {LoginComponent} from './login/login.component';
-import {HomeComponent} from './home/home.component';
-import {RegisterComponent} from './register/register.component';
-import {PageNotFoundComponent} from './home/page-not-found/page-not-found.component';
+import { NgModule, Component } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
+import { PageNotFoundComponent } from './home/page-not-found/page-not-found.component';
+import { MenuComponent } from './menu/menu.component';
+import { OrganizerComponent } from './organizer/organizer.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'login', component: LoginComponent},
-  {path: '**', component: PageNotFoundComponent}
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'menu', component: MenuComponent },
+  { path: 'organizer', component: OrganizerComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
