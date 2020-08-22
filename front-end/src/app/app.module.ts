@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http'
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -9,8 +9,9 @@ import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from './home/header/header.component';
 import {FooterComponent} from './home/footer/footer.component';
-import {RegisterComponent} from './register/register.component';
+import {RegisterSpeakerComponent} from './register-speaker/register-speaker.component';
 import {PageNotFoundComponent} from './home/page-not-found/page-not-found.component';
+import { RegisterReviewerComponent } from './register-reviewer/register-reviewer.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,16 @@ import {PageNotFoundComponent} from './home/page-not-found/page-not-found.compon
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    RegisterComponent,
-    PageNotFoundComponent
+    RegisterSpeakerComponent,
+    PageNotFoundComponent,
+    RegisterReviewerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
