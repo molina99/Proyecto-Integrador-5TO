@@ -43,8 +43,16 @@ export class LoginComponent implements OnInit {
     if (dataLogin.person.email != '' && dataLogin.person.password != '') {
       this.personServices.login(dataLogin).subscribe((data: Data) => {
         if (data.ok) {
+          console.log(data.token)
           if (this.permissions.decodeToken(data.token)) {
-            this.router.navigate(['/home']);
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Sesión Exitosa',
+              showConfirmButton: false,
+              timer: 1500
+            });
+            this.router.navigate(['/dashboard/users']);
           } else {
             email = '';
             password = '';

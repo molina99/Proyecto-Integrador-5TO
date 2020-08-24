@@ -25,4 +25,7 @@ export class PersonService {
     return this.http.post(`${this.url}/postPerson`, person);
   }
 
+  getUsers() {
+    return this.http.get(`${this.url}/getPersons`)
+  }
 }

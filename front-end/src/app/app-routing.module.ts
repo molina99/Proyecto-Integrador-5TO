@@ -13,6 +13,11 @@ const routes: Routes = [
   {path: 'register-speaker', component: RegisterSpeakerComponent},
   {path: 'register-reviewer', component: RegisterReviewerComponent},
   {path: 'login', component: LoginComponent},
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+    // canActivate: [LoginGuard]
+  },
   {path: '**', component: PageNotFoundComponent}
 ];
 
