@@ -12,7 +12,7 @@ api.get('/getPersonById/:id', [authenticate.tokenAuth], personController.getPers
 api.get('/getPersons', personController.getPersons)
 api.post('/postPerson', [encodings.encodePassword], personController.postPerson)
 api.put('/putPerson/:id', [authenticate.tokenAuth, encodings.encodePassword], personController.putPerson)
-api.put('/disablePerson/:id', [authenticate.tokenAuth], personController.disablePerson)
+api.put('/disablePerson/:id', personController.disablePerson)
 api.post('/login', personController.login)
 
 module.exports = api

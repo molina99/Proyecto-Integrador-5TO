@@ -1,11 +1,9 @@
-.tooltip .tooltip-text {
-  visibility: hidden;
-  text-align: center;
-  padding: 2px 6px;
-  position: absolute;
-  z-index: 100;
+.toggle-checkbox:checked {
+  @apply: right-0 border-green-400;
+  right: 0;
+  border-color: #68D391;
 }
-
-.tooltip:hover .tooltip-text {
-  visibility: visible;
+.toggle-checkbox:checked + .toggle-label {
+  @apply: bg-green-400;
+  background-color: #68D391;
 }

@@ -28,4 +28,8 @@ export class PersonService {
   getUsers() {
     return this.http.get(`${this.url}/getPersons`)
   }
+
+  disableEnablePerson(id: string, person: object) {
+    return this.http.put(`${this.url}/disablePerson/${id}`, person);
+  }
 }

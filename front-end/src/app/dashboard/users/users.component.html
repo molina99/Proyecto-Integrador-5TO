@@ -2,7 +2,7 @@
 
   <app-sidebar></app-sidebar>
 
-  <div class="mx-10 my-2 overflow-auto">
+  <div class="mx-12 my-2 overflow-auto">
     <h2 class="py-4 text-2xl font-semibold text-gray-800 border-b">
       Lista de Usuarios
     </h2>
@@ -21,7 +21,7 @@
               Núm. de Identificación
             </th>
             <th
-              class="px-3 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-sm text-gray-600">
+              class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-sm text-gray-600">
               Correo electrónico
             </th>
             <th
@@ -30,17 +30,13 @@
             </th>
             <th
               class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-sm text-gray-600">
-              Estado
-            </th>
-            <th
-              class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-sm text-gray-600">
-              Acciones
+              Habilitado / Inhabilitado
             </th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let user of users.persons">
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <td *ngIf="user.rol !== 'Administrador'" class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
               <div class="flex items-center">
                 <div class="flex-shrink-0 w-10 h-10">
                   <img *ngIf="photo" class="w-full h-full rounded-full" src="" alt=""/>
@@ -53,38 +49,27 @@
                 </div>
               </div>
             </td>
-            <td class="px-1 py-5 border-b border-gray-200 bg-white text-sm">
+            <td *ngIf="user.rol !== 'Administrador'"
+                class="px-1 py-5 border-b border-gray-200 bg-white text-sm text-center">
               <p class="text-gray-900">{{user.dni}}</p>
             </td>
-            <td class="px-3 py-5 border-b border-gray-200 bg-white text-sm">
+            <td *ngIf="user.rol !== 'Administrador'" class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
               <p class="text-gray-900 whitespace-no-wrap">{{user.email}}</p>
             </td>
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <td *ngIf="user.rol !== 'Administrador'" class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
               <p class="text-gray-900 whitespace-no-wrap">
                 {{user.rol}}
               </p>
             </td>
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-              <i *ngIf="user.status == true" class="fas fa-check-circle text-green-700 text-1xl">
-                Habilitado</i>
-              <i *ngIf="user.status == false" class="fas fa-times-circle text-red-700 text-1xl">
-                Inhabilitado</i>
-            </td>
-            <td class="flex px-5 py-8 border-b border-gray-200 bg-white text-sm">
-              <button class="appearance-none focus:outline-none">
-                <i class="fas fa-pen-square mr-5 text-blue-800 text-xl tooltip">
-                  <span
-                    class='tooltip-text text-gray-700 p-3 -mt-6 -ml-12 font-medium text-xs rounded font-sans fixed'>Editar usuario</span>
-                </i>
-              </button>
-              <button class="appearance-none focus:outline-none">
-                <i class="fas fa-exchange-alt mr-5 text-green-800 text-xl tooltip">
-                  <span *ngIf="user.status == true"
-                        class='tooltip-text text-gray-700 p-3 -mt-6 -ml-16 font-medium text-xs rounded font-sans'>Inhabilitar usuario</span>
-                  <span *ngIf="user.status == false"
-                        class='tooltip-text text-gray-700 p-3 -mt-6 -ml-16 font-medium text-xs rounded font-sans'>Habilitar usuario</span>
-                </i>
-              </button>
+            <td *ngIf="user.rol !== 'Administrador'"
+                class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                <input (click)="disableEnableUser(user._id, user.status = false)" type="checkbox" *ngIf="user.status == true" checked
+                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none focus:outline-none cursor-pointer"/>
+                <input (click)="disableEnableUser(user._id, user.status = true)" type="checkbox" *ngIf="user.status == false"
+                       class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none focus:outline-none cursor-pointer"/>
+                <label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300"></label>
+              </div>
             </td>
           </tr>
           </tbody>

@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PersonService} from '../../services/person.service';
+import {Person} from '../../models/person';
+import {Router} from '@angular/router';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-users',
@@ -8,11 +11,13 @@ import {PersonService} from '../../services/person.service';
 })
 export class UsersComponent implements OnInit {
 
-  photo: any = ''
+  photo: any = '';
   users: any = [];
+  status: boolean;
 
   constructor(
-    private personService: PersonService
+    private personService: PersonService,
+    private router: Router
   ) {
   }
 
@@ -29,4 +34,30 @@ export class UsersComponent implements OnInit {
     );
   }
 
+  disableEnableUser(id: string, status: boolean) {
+    let dataPerson = {
+      status: status
+    }
+    this.personService.disableEnablePerson(id, dataPerson).subscribe(
+      res => {
+        if (status == true) {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Usuario habilitado',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        } else {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Usuario inhabilitado',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      }
+    );
+  }
 }
