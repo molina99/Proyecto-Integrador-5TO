@@ -25,6 +25,10 @@ export class PersonService {
     return this.http.post(`${this.url}/postPerson`, person);
   }
 
+  getUserById(id: string) {
+    return this.http.get(`${this.url}/getPersonById/${id}`);
+  }
+
   getUsers() {
     return this.http.get(`${this.url}/getPersons`)
   }

@@ -2,7 +2,7 @@ export interface Person {
   _id?: string,
   rol: string,
   level_academy: string,
-  speciality: string,
+  specialty: string,
   type_dni: string,
   dni: string,
   names: string,

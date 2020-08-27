@@ -14,11 +14,11 @@ const Person = new Schema({
     },
     specialty: {
         type: String,
-        enum: ['Medicina', 'Economia', 'Deportes', 'Educacion']
+        enum: ['Medicina', 'Economía', 'Deportes', 'Educación']
     },
     type_dni: {
         type: String,
-        enum: ['Cedula', 'Pasaporte']
+        enum: ['Cédula', 'Pasaporte']
     },
     dni: {type: String},
     names: {type: String},

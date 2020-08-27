@@ -9,7 +9,7 @@
 
     <div class="py-6">
       <div class="inline-block shadow rounded-lg">
-        <table class="w-full leading-normal">
+        <table>
           <thead>
           <tr>
             <th
@@ -17,7 +17,7 @@
               Usuario
             </th>
             <th
-              class="px-1 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-sm text-gray-600">
+              class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-sm text-gray-600">
               Núm. de Identificación
             </th>
             <th
@@ -36,28 +36,31 @@
           </thead>
           <tbody>
           <tr *ngFor="let user of users.persons">
-            <td *ngIf="user.rol !== 'Administrador'" class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <td *ngIf="user.rol !== 'Administrador'"
+                class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
               <div class="flex items-center">
                 <div class="flex-shrink-0 w-10 h-10">
                   <img *ngIf="photo" class="w-full h-full rounded-full" src="" alt=""/>
                   <i *ngIf="!photo" class="fas fa-user text-gray-600 text-4xl"></i>
                 </div>
                 <div class="ml-3">
-                  <p class="text-gray-900 whitespace-no-wrap">
+                  <p class="text-gray-900">
                     {{user.last_names}} {{user.names}}
                   </p>
                 </div>
               </div>
             </td>
             <td *ngIf="user.rol !== 'Administrador'"
-                class="px-1 py-5 border-b border-gray-200 bg-white text-sm text-center">
+                class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
               <p class="text-gray-900">{{user.dni}}</p>
             </td>
-            <td *ngIf="user.rol !== 'Administrador'" class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-              <p class="text-gray-900 whitespace-no-wrap">{{user.email}}</p>
+            <td *ngIf="user.rol !== 'Administrador'"
+                class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+              <p class="text-gray-900">{{user.email}}</p>
             </td>
-            <td *ngIf="user.rol !== 'Administrador'" class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-              <p class="text-gray-900 whitespace-no-wrap">
+            <td *ngIf="user.rol !== 'Administrador'"
+                class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+              <p class="text-gray-900">
                 {{user.rol}}
               </p>
             </td>

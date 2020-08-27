@@ -19,7 +19,7 @@ export class RegisterReviewerComponent implements OnInit {
     names: '',
     last_names: '',
     level_academy: '',
-    speciality: '',
+    specialty: '',
     phone: '',
     email: '',
     password: '',
@@ -36,7 +36,7 @@ export class RegisterReviewerComponent implements OnInit {
   }
 
   postPerson() {
-    if (this.person.type_dni && this.person.dni && this.person.names && this.person.last_names && this.person.level_academy && this.person.speciality && this.person.phone && this.person.email && this.person.password) {
+    if (this.person.type_dni && this.person.dni && this.person.names && this.person.last_names && this.person.level_academy && this.person.specialty && this.person.phone && this.person.email && this.person.password) {
       let dataPerson = {
         person: this.person
       }
