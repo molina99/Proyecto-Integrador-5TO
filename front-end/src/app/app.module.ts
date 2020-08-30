@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,9 @@ import { RegisterComponent } from './register/register.component';
 import { PageNotFoundComponent } from './home/page-not-found/page-not-found.component';
 import { MenuComponent } from './menu/menu.component';
 import { OrganizerComponent } from './organizer/organizer.component';
+import { LinkComponent } from './link/link.component';
+import { PostCongresComponent } from './organizer/post-congres/post-congres.component';
+
 
 @NgModule({
   declarations: [
@@ -22,11 +26,14 @@ import { OrganizerComponent } from './organizer/organizer.component';
     RegisterComponent,
     PageNotFoundComponent,
     MenuComponent,
-    OrganizerComponent
+    OrganizerComponent,
+    LinkComponent,
+    PostCongresComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
