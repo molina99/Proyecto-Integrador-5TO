@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 1500
               });
-              this.router.navigate(['dashboard/postulations']);
+              this.router.navigate(['dashboard/congresses']);
             } else {
               email = '';
               password = '';
