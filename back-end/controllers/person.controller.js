@@ -108,10 +108,14 @@ let login = async (req, res) => {
                 person, token
             })
         } else {
-            res.status(200).send('Contraseña o correo incorrectos')
+            res.status(200).json({
+                ok: false
+            })
         }
     } else {
-        res.status(200).send('La cuenta no existe')
+        res.status(200).json({
+            ok: false
+        })
     }
 }
 

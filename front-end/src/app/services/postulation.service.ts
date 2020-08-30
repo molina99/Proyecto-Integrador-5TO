@@ -16,6 +16,6 @@ export class PostulationService {
   }
 
   getPostulations() {
-    return this.http.get(`${this.url}/getPostulations`)
+    return this.http.get(`${this.url}/getPostulations`, this.server.obtainHeaders())
   }
 }

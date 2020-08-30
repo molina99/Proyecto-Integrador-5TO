@@ -19,19 +19,21 @@
           <input type="email" name="email"
                  formControlName="email"
                  class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                 autocomplete="email" required>
+                 autocomplete="email"
+                  placeholder="Ej: jose@gmail.com">
           <div>
             <div class="text-sm text-red-500 mt-2"></div>
           </div>
         </div>
-        <div class="mb-4">
+        <div class="mb-6">
           <label class="block mb-2 text-sm text-gray-800">Tu contraseña</label>
           <div class="relative">
             <input type="password" name="password"
                    formControlName="password"
                    [type]="viewPassword ? 'password' : 'text'"
                    class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                   autocomplete="current-password" required>
+                   autocomplete="current-password"
+                    placeholder="******">
             <div class="absolute right-0 bottom-0 top-0 px-3 py-2 cursor-pointer">
               <svg (click)="viewPassword = false" *ngIf="viewPassword == true" xmlns="http://www.w3.org/2000/svg"
                    class="w-6 h-6 fill-current text-gray-600" viewBox="0 0 24 24">
@@ -48,26 +50,52 @@
             </div>
           </div>
         </div>
-        <label class="mb-4 flex items-center">
-          <input type="checkbox" class="form-checkbox" name="remember" checked>
-          <span class="ml-2">Recordar contraseña</span>
-        </label>
         <div class="block md:flex items-center justify-between">
           <button
             (click)="login()"
-            class="align-middle bg-blue-500 hover:bg-blue-600 text-center px-4 py-2 text-white text-sm font-semibold rounded-lg inline-block shadow-lg">
+            class="align-middle bg-blue-500 hover:bg-blue-600 text-center px-4 py-2 text-white text-sm font-semibold rounded-lg inline-block shadow-lg focus:outline-none">
             Ingresar
           </button>
-
-          <a class="text-gray-600 hover:text-gray-700 no-underline block mt-3" href="#">
-            Olvidaste tu contraseña?
-          </a>
         </div>
       </form>
       <div class="mt-4">
         <label class="block mb-2 text-sm text-gray-800">No te haz registrado? <a
-          class="text-gray-600 hover:text-blue-700" routerLink="/register">Hazlo aquí</a></label>
+          onclick="document.getElementById('myModal').showModal()" id="btn"
+          class="text-blue-500 hover:text-blue-700 cursor-pointer">Hazlo aquí</a></label>
       </div>
     </div>
   </div>
 </div>
+
+<!-- MODAL -->
+<dialog id="myModal" class="h-auto w-11/12 md:w-1/2 p-5 bg-white rounded-md">
+  <div class="flex flex-col w-full h-auto p-3">
+    <div class="flex w-full h-auto items-center">
+      <div class="flex w-10/12 h-auto py-3 text-xl md:text-2xl ml-5">
+        Selecciona el rol que desempeñaras
+      </div>
+      <div onclick="document.getElementById('myModal').close();"
+           class="flex w-1/12 h-auto justify-center cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </div>
+    </div>
+    <div class="w-full h-auto py-10 justify-center items-center text-center">
+      <div class="w-full md:w-full px-3 mb-4">
+        <button routerLink="/register-speaker"
+                class="appearance-none block w-full border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-gray-100 rounded-lg py-3 px-3 leading-tight focus:outline-none">
+          Ponente
+        </button>
+      </div>
+      <div class="w-full md:w-full px-3">
+        <button routerLink="/register-reviewer"
+                class="appearance-none block w-full border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-gray-100 rounded-lg py-3 px-3 leading-tight focus:outline-none">
+          Revisor
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>

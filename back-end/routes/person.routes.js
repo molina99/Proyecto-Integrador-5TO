@@ -9,10 +9,10 @@ const authenticate = require('../middlewares/authenticate')
 const encodings = require('../middlewares/encodings')
 
 api.get('/getPersonById/:id', personController.getPersonById)
-api.get('/getPersons', personController.getPersons)
+api.get('/getPersons', [authenticate.tokenAuth], personController.getPersons)
 api.post('/postPerson', [encodings.encodePassword], personController.postPerson)
 api.put('/putPerson/:id', [authenticate.tokenAuth, encodings.encodePassword], personController.putPerson)
-api.put('/disablePerson/:id', personController.disablePerson)
+api.put('/disablePerson/:id', [authenticate.tokenAuth], personController.disablePerson)
 api.post('/login', personController.login)
 
 module.exports = api

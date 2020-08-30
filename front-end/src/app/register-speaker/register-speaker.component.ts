@@ -40,26 +40,38 @@ export class RegisterSpeakerComponent implements OnInit {
       let dataPerson = {
         person: this.person
       }
-      this.personService.postPerson(dataPerson)
-        .subscribe(
-          res => {
-            Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: 'Registro exitoso',
-              showConfirmButton: false,
-              timer: 1500
-            });
-            this.router.navigate(['/login']);
-          },
-          err => {
-            console.error(err);
-          }
-        );
+      let path = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+      let validate = path.test(dataPerson.person.email)
+      if (validate) {
+        this.personService.postPerson(dataPerson)
+          .subscribe(
+            res => {
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Registro exitoso',
+                showConfirmButton: false,
+                timer: 1500
+              });
+              this.router.navigate(['/login']);
+            },
+            err => {
+              console.error(err);
+            }
+          );
+      } else {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'warning',
+          title: 'Correo inválido',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
     } else {
       Swal.fire({
         position: 'top-end',
-        icon: 'error',
+        icon: 'warning',
         title: 'Debes completar todos los datos',
         showConfirmButton: false,
         timer: 1500

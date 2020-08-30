@@ -34,39 +34,58 @@ export class LoginComponent implements OnInit {
   login(): void {
     let email = this.loginData.get('email').value;
     let password = this.loginData.get('password').value;
+    let path = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
     let dataLogin = {
       person: {
         password,
         email
       }
     };
+    let validate = path.test(dataLogin.person.email)
     if (dataLogin.person.email != '' && dataLogin.person.password != '') {
-      this.personServices.login(dataLogin).subscribe((data: Data) => {
-        if (data.ok) {
-          console.log(data.token)
-          if (this.permissions.decodeToken(data.token)) {
+      if (validate) {
+        this.personServices.login(dataLogin).subscribe((data: Data) => {
+          if (data.ok == true) {
+            if (this.permissions.decodeToken(data.token)) {
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Inicio de Sesión Exitosa',
+                showConfirmButton: false,
+                timer: 1500
+              });
+              this.router.navigate(['dashboard/postulations']);
+            } else {
+              email = '';
+              password = '';
+              console.log('Error')
+            }
+          } else if (data.ok == false) {
             Swal.fire({
               position: 'top-end',
-              icon: 'success',
-              title: 'Sesión Exitosa',
+              icon: 'warning',
+              title: 'Correo y/o contraseña incorrectos',
               showConfirmButton: false,
               timer: 1500
             });
-            this.router.navigate(['/dashboard/users']);
-          } else {
-            email = '';
-            password = '';
-            console.log('Error')
           }
-        } else {
-          Swal.fire({
-            position: 'top-end',
-            icon: 'warning',
-            title: 'Correo o contraseña incorrectas',
-            showConfirmButton: false,
-            timer: 1500
-          });
-        }
+        });
+      } else {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'warning',
+          title: 'Correo Inválido',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    } else {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Debes completar todos los campos',
+        showConfirmButton: false,
+        timer: 1500
       });
     }
   }
