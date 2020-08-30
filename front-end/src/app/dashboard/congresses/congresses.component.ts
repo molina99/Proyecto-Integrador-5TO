@@ -23,7 +23,6 @@ export class CongressesComponent implements OnInit {
     return this.congressService.getCongress().subscribe(
       res => {
         this.congress = res;
-        console.log(this.congress)
       },
       err => console.error(err)
     )
