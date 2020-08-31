@@ -6,10 +6,12 @@ import {RegisterSpeakerComponent} from './register-speaker/register-speaker.comp
 import {PageNotFoundComponent} from './home/page-not-found/page-not-found.component';
 import {RegisterReviewerComponent} from './register-reviewer/register-reviewer.component';
 import {LoginGuard} from './guards/login.guard';
+import {RegisterAssistantComponent} from './register-assistant/register-assistant.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
+  {path: 'register-assistant', component: RegisterAssistantComponent},
   {path: 'register-speaker', component: RegisterSpeakerComponent},
   {path: 'register-reviewer', component: RegisterReviewerComponent},
   {path: 'login', component: LoginComponent},

@@ -8,7 +8,7 @@
             <div>
               <div class="mb-5 text-left text-gray-600 font-bold text-4xl mb-10 flex">
                 <i class="fas fa-user py-2 mr-5"></i>
-                <h1 class="">Registro de Ponente</h1>
+                <h1 class="">Registro del Ponente</h1>
               </div>
               <div class="mb-5 text-gray-700">
                 <label class="font-bold mb-1 block">Tipo de identificación:</label>
@@ -26,14 +26,26 @@
                   </div>
                 </div>
               </div>
-              <div class="mb-5">
+              <div *ngIf="person.type_dni == 'Cédula'" class="mb-5">
                 <label class="font-bold mb-1 text-gray-700 block">Número de identificación:</label>
                 <input
                   name="dni"
                   [(ngModel)]="person.dni"
                   type="text"
                   class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                  placeholder="Ingrese número de identificación..."
+                  placeholder="Ej: 1722334455"
+                  maxlength="10"
+                >
+              </div>
+              <div *ngIf="person.type_dni == 'Pasaporte'" class="mb-5">
+                <label class="font-bold mb-1 text-gray-700 block">Número de identificación:</label>
+                <input
+                  name="dni"
+                  [(ngModel)]="person.dni"
+                  type="text"
+                  class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+                  placeholder="Ej: 2222222222"
+                  maxlength="10"
                 >
               </div>
               <div class="mb-5">
@@ -43,7 +55,7 @@
                   [(ngModel)]="person.names"
                   type="text"
                   class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                  placeholder="Ingrese sus dos nombres...">
+                  placeholder="Ej: Marco Antonio">
               </div>
               <div class="mb-5">
                 <label class="font-bold mb-1 text-gray-700 block">Apellidos:</label>
@@ -52,7 +64,7 @@
                   [(ngModel)]="person.last_names"
                   type="text"
                   class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                  placeholder="Ingrese sus dos apellidos...">
+                  placeholder="Ej: Jumbo Estrada">
               </div>
               <div class="mb-5 text-gray-700">
                 <label class="font-bold mb-1 block">Nivel académico:</label>
@@ -96,7 +108,9 @@
                   [(ngModel)]="person.phone"
                   type="text"
                   class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                  placeholder="Ingrese su número de teléfono...">
+                  placeholder="Ej: 0999999999"
+                  maxlength="10"
+                >
               </div>
               <div class="mb-5">
                 <label class="font-bold mb-1 text-gray-700 block">Correo electrónico:</label>
@@ -105,7 +119,7 @@
                   [(ngModel)]="person.email"
                   type="email"
                   class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                  placeholder="Ingrese su correo electrónico...">
+                  placeholder="marco@example.com">
               </div>
             </div>
             <div>
@@ -118,7 +132,7 @@
                     type="password"
                     [type]="viewPassword ? 'password' : 'text'"
                     class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                    placeholder="Ingrese su contraseña...">
+                    placeholder="******">
                   <div class="absolute right-0 bottom-0 top-0 px-3 py-2 cursor-pointer">
                     <svg (click)="viewPassword = false" *ngIf="viewPassword == true" xmlns="http://www.w3.org/2000/svg"
                          class="w-6 h-6 fill-current text-gray-600" viewBox="0 0 24 24">
@@ -150,7 +164,7 @@
             </div>
 
             <div class="w-1/2 text-right">
-              <button (click)="postPerson()"
+              <button (click)="postPerson(person.dni)"
                       class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium"
               >Enviar
               </button>

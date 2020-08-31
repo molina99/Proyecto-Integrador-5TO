@@ -8,32 +8,7 @@
             <div>
               <div class="mb-5 text-left text-gray-600 font-bold text-4xl mb-10 flex">
                 <i class="fas fa-user py-2 mr-5"></i>
-                <h1 class="">Registro del Revisor</h1>
-              </div>
-              <div class="mb-5 text-gray-700">
-                <label class="font-bold mb-1 block">Tipo de identificación:</label>
-                <div class="relative">
-                  <select
-                    name="type_dni"
-                    [(ngModel)]="person.type_dni"
-                    class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none">
-                    <option value="">Seleccione..</option>
-                    <option>Cédula</option>
-                    <option>Pasaporte</option>
-                  </select>
-                  <div class="absolute right-0 bottom-0 top-0 px-3 py-2 text-gray-600">
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="mb-5">
-                <label class="font-bold mb-1 text-gray-700 block">Número de identificación:</label>
-                <input
-                  name="dni"
-                  [(ngModel)]="person.dni"
-                  type="text"
-                  class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                  placeholder="Ingrese número de identificación...">
+                <h1 class="">Registro del Asistente</h1>
               </div>
               <div class="mb-5">
                 <label class="font-bold mb-1 text-gray-700 block">Nombres:</label>
@@ -42,7 +17,7 @@
                   [(ngModel)]="person.names"
                   type="text"
                   class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                  placeholder="Ingrese sus dos nombres...">
+                  placeholder="Ej: Marco Antonio">
               </div>
               <div class="mb-5">
                 <label class="font-bold mb-1 text-gray-700 block">Apellidos:</label>
@@ -51,51 +26,7 @@
                   [(ngModel)]="person.last_names"
                   type="text"
                   class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                  placeholder="Ingrese sus dos apellidos...">
-              </div>
-              <div class="mb-5 text-gray-700">
-                <label class="font-bold mb-1 block">Nivel académico:</label>
-                <div class="relative">
-                  <select
-                    name="level_academy"
-                    [(ngModel)]="person.level_academy"
-                    class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none">
-                    <option value="">Seleccione..</option>
-                    <option>Segundo Nivel</option>
-                    <option>Tercer Nivel</option>
-                    <option>Masterado</option>
-                  </select>
-                  <div class="absolute right-0 bottom-0 top-0 px-3 py-2 text-gray-600">
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="mb-5 text-gray-700">
-                <label class="font-bold mb-1 block">Especialidad:</label>
-                <div class="relative">
-                  <select
-                    name="speciality"
-                    [(ngModel)]="person.specialty"
-                    class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none">
-                    <option value="">Seleccione..</option>
-                    <option>Medicina</option>
-                    <option>Economía</option>
-                    <option>Deportes</option>
-                    <option>Educación</option>
-                  </select>
-                  <div class="absolute right-0 bottom-0 top-0 px-3 py-2 text-gray-600">
-                    <i class="fas fa-angle-down"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="mb-5">
-                <label class="font-bold mb-1 text-gray-700 block">Teléfono:</label>
-                <input
-                  name="phone"
-                  [(ngModel)]="person.phone"
-                  type="text"
-                  class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                  placeholder="Ingrese su número de teléfono...">
+                  placeholder="Ej: Jumbo Estrada">
               </div>
               <div class="mb-5">
                 <label class="font-bold mb-1 text-gray-700 block">Correo electrónico:</label>
@@ -104,7 +35,7 @@
                   [(ngModel)]="person.email"
                   type="email"
                   class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                  placeholder="Ingrese su correo electrónico...">
+                  placeholder="Ej: marco@example.com">
               </div>
             </div>
             <div>
@@ -117,7 +48,7 @@
                     type="password"
                     [type]="viewPassword ? 'password' : 'text'"
                     class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
-                    placeholder="Ingrese su contraseña...">
+                    placeholder="******">
                   <div class="absolute right-0 bottom-0 top-0 px-3 py-2 cursor-pointer">
                     <svg (click)="viewPassword = false" *ngIf="viewPassword == true" xmlns="http://www.w3.org/2000/svg"
                          class="w-6 h-6 fill-current text-gray-600" viewBox="0 0 24 24">

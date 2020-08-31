@@ -22,7 +22,7 @@ export class PersonService {
   }
 
   postPerson(person: object) {
-    return this.http.post(`${this.url}/postPerson`, person, this.server.obtainHeaders());
+    return this.http.post(`${this.url}/postPerson`, person);
   }
 
   getUserById(id: string) {

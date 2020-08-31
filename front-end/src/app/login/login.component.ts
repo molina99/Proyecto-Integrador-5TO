@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
         Swal.fire({
           position: 'top-end',
           icon: 'warning',
-          title: 'Correo Inválido',
+          title: 'Por favor, ingrese un correo válido',
           showConfirmButton: false,
           timer: 1500
         });
@@ -83,7 +83,7 @@ export class LoginComponent implements OnInit {
       Swal.fire({
         position: 'top-end',
         icon: 'warning',
-        title: 'Debes completar todos los campos',
+        title: 'Por favor, completar todos los datos',
         showConfirmButton: false,
         timer: 1500
       });

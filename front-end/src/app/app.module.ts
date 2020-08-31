@@ -12,6 +12,7 @@ import {FooterComponent} from './home/footer/footer.component';
 import {RegisterSpeakerComponent} from './register-speaker/register-speaker.component';
 import {PageNotFoundComponent} from './home/page-not-found/page-not-found.component';
 import {RegisterReviewerComponent} from './register-reviewer/register-reviewer.component';
+import { RegisterAssistantComponent } from './register-assistant/register-assistant.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {RegisterReviewerComponent} from './register-reviewer/register-reviewer.c
     FooterComponent,
     RegisterSpeakerComponent,
     PageNotFoundComponent,
-    RegisterReviewerComponent
+    RegisterReviewerComponent,
+    RegisterAssistantComponent
   ],
   imports: [
     BrowserModule,
