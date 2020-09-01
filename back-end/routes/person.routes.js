@@ -9,6 +9,7 @@ const authenticate = require('../middlewares/authenticate')
 const encodings = require('../middlewares/encodings')
 
 api.get('/getPersonById/:id', personController.getPersonById)
+api.get('/getPersonByEmail/:email', personController.getPersonByEmail)
 api.get('/getPersons', [authenticate.tokenAuth], personController.getPersons)
 api.post('/postPerson', [encodings.encodePassword], personController.postPerson)
 api.put('/putPerson/:id', [authenticate.tokenAuth, encodings.encodePassword], personController.putPerson)

@@ -9,6 +9,7 @@ import {Data} from '../models/data';
 })
 export class PersonService {
   private url: string;
+  email: string;
 
   constructor(
     private http: HttpClient,
@@ -18,6 +19,7 @@ export class PersonService {
   }
 
   login(dataLogin: { person: { password: any; email: any; }; }): Observable<Data> {
+    this.email = dataLogin.person.email
     return this.http.post<Data>(`${this.url}/login`, dataLogin);
   }
 
@@ -27,6 +29,10 @@ export class PersonService {
 
   getUserById(id: string) {
     return this.http.get(`${this.url}/getPersonById/${id}`, this.server.obtainHeaders());
+  }
+
+  getUserByEmail(email: string) {
+    return this.http.get(`${this.url}/getPersonByEmail/${email}`)
   }
 
   getUsers() {

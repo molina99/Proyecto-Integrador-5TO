@@ -5,8 +5,9 @@ import {HomeComponent} from './home/home.component';
 import {RegisterSpeakerComponent} from './register-speaker/register-speaker.component';
 import {PageNotFoundComponent} from './home/page-not-found/page-not-found.component';
 import {RegisterReviewerComponent} from './register-reviewer/register-reviewer.component';
-import {LoginGuard} from './guards/login.guard';
 import {RegisterAssistantComponent} from './register-assistant/register-assistant.component';
+import {LoginGuard} from './guards/login.guard';
+import {ExpiredTokenGuard} from './guards/expired-token.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},

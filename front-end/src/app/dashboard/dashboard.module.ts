@@ -4,10 +4,10 @@ import {UsersComponent} from './users/users.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
 
 import {DashboardRoutingModule} from './dashboard-routing.module';
-import { PostulationsComponent } from './postulations/postulations.component';
+import {PostulationsComponent} from './postulations/postulations.component';
 import {FormsModule} from "@angular/forms";
-import { CongressesComponent } from './congresses/congresses.component';
-import { LinksComponent } from './links/links.component';
+import {CongressesComponent} from './congresses/congresses.component';
+import {LinksComponent} from './links/links.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +17,14 @@ import { LinksComponent } from './links/links.component';
     CongressesComponent,
     LinksComponent
   ],
-    imports: [
-        CommonModule,
-        DashboardRoutingModule,
-        FormsModule
-    ]
+  exports: [
+    SidebarComponent
+  ],
+  imports: [
+    CommonModule,
+    DashboardRoutingModule,
+    FormsModule
+  ]
 })
 export class DashboardModule {
 }

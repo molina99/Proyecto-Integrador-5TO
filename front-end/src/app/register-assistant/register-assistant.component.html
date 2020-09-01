@@ -10,6 +10,44 @@
                 <i class="fas fa-user py-2 mr-5"></i>
                 <h1 class="">Registro del Asistente</h1>
               </div>
+              <div class="mb-5 text-gray-700">
+                <label class="font-bold mb-1 block">Tipo de identificación:</label>
+                <div class="relative">
+                  <select
+                    name="type_dni"
+                    [(ngModel)]="person.type_dni"
+                    class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none">
+                    <option value="">Seleccione..</option>
+                    <option>Cédula</option>
+                    <option>Pasaporte</option>
+                  </select>
+                  <div class="absolute right-0 bottom-0 top-0 px-3 py-2 text-gray-600">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="person.type_dni == 'Cédula'" class="mb-5">
+                <label class="font-bold mb-1 text-gray-700 block">Número de identificación:</label>
+                <input
+                  name="dni"
+                  [(ngModel)]="person.dni"
+                  type="text"
+                  class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+                  placeholder="Ej: 1722334455"
+                  maxlength="10"
+                >
+              </div>
+              <div *ngIf="person.type_dni == 'Pasaporte'" class="mb-5">
+                <label class="font-bold mb-1 text-gray-700 block">Número de identificación:</label>
+                <input
+                  name="dni"
+                  [(ngModel)]="person.dni"
+                  type="text"
+                  class="focus:border-blue-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
+                  placeholder="Ej: 2222222222"
+                  maxlength="10"
+                >
+              </div>
               <div class="mb-5">
                 <label class="font-bold mb-1 text-gray-700 block">Nombres:</label>
                 <input
@@ -80,7 +118,7 @@
             </div>
 
             <div class="w-1/2 text-right">
-              <button (click)="postPerson()"
+              <button (click)="postPerson(person.dni)"
                       class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium"
               >Enviar
               </button>

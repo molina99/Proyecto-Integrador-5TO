@@ -41,12 +41,13 @@ export class RegisterSpeakerComponent implements OnInit {
         person: this.person
       }
       let pathEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
-      let pathOnlyLetters = /^[ñA-Za-z _]*[ñA-Za-z][ñA-Za-z _]*$/
-      let pathOnlyIntegers = /^[0-9]{2}[0-9]{8}$/
+      let pathOnlyLetters = /^[ñA-ZñÑáéíóúÁÉÍÓÚa-z _]*$/
+      let pathPhone = /^[0-9]{2}[0-9]{8}$/
+      let pathLettersAndInt = /^[A-Z0-9]{10}$/
       let validateEmail = pathEmail.test(dataPerson.person.email)
       let validateNames = pathOnlyLetters.test(dataPerson.person.names)
       let validateLastNames = pathOnlyLetters.test(dataPerson.person.last_names)
-      let validateIntegers = pathOnlyIntegers.test(dataPerson.person.phone)
+      let validateIntegers = pathPhone.test(dataPerson.person.phone)
       let validateCI = this.validationDniCI(ci)
       if (validateNames && validateLastNames) {
         if (validateIntegers) {
@@ -79,22 +80,33 @@ export class RegisterSpeakerComponent implements OnInit {
                 });
               }
             } else if (this.person.type_dni == 'Pasaporte') {
-              this.personService.postPerson(dataPerson)
-                .subscribe(
-                  res => {
-                    Swal.fire({
-                      position: 'top-end',
-                      icon: 'success',
-                      title: 'Registro Exitoso',
-                      showConfirmButton: false,
-                      timer: 1500
-                    });
-                    this.router.navigate(['/login']);
-                  },
-                  err => {
-                    console.error(err);
-                  }
-                );
+              let validatePassport = pathLettersAndInt.test(dataPerson.person.dni)
+              if (validatePassport) {
+                this.personService.postPerson(dataPerson)
+                  .subscribe(
+                    res => {
+                      Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Registro Exitoso',
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                      this.router.navigate(['/login']);
+                    },
+                    err => {
+                      console.error(err);
+                    }
+                  );
+              } else {
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'warning',
+                  title: 'Por favor, ingrese un pasaporte válido',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              }
             }
           } else {
             Swal.fire({

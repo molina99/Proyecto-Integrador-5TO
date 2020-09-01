@@ -22,6 +22,23 @@ let getPersonById = async (req, res) => {
     }
 }
 
+let getPersonByEmail = async (req, res) => {
+    let email = req.params.email
+    let person = await Person.findOne({email: email})
+    if (person) {
+        res.status(200).json({
+            ok: true,
+            person
+        })
+    } else {
+        res.status(200).json({
+            ok: false,
+            data: null,
+            sms: 'Correo no registrado en el sistema'
+        })
+    }
+}
+
 let getPersons = async (req, res) => {
     let persons = await Person.find()
     if (persons) {
@@ -121,6 +138,7 @@ let login = async (req, res) => {
 
 module.exports = {
     getPersonById,
+    getPersonByEmail,
     getPersons,
     postPerson,
     putPerson,

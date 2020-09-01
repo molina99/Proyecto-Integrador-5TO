@@ -7,12 +7,15 @@
 			</span>
     </div>
 
-    <div class="mt-1 text-center" style="display: none">
-      <h2 class="mt-4 text-xl text-gray-700 font-extrabold capitalize">
-        Jose Molina
+    <div class="mt-4 text-center">
+       <span class="text-sm font-semibold text-green-600 mt-2">
+					Bienvenido/a
+			</span>
+      <h2 class="my-2 text-lg text-gray-700 font-extrabold">
+        {{dataUser.person.last_names}} {{dataUser.person.names}}
       </h2>
-      <span class="text-sm font-semibold text-green-600 dark:text-green-300">
-					Administrador
+      <span class="text-sm font-semibold text-green-600">
+					{{dataUser.person.rol}}
 			</span>
     </div>
 
@@ -31,7 +34,7 @@
         </a>
       </li>
 
-      <li class="mt-8">
+      <li *ngIf="dataUser.person.rol !== 'Asistente'" class="mt-8">
         <a routerLink="../postulations" class="flex hover:text-green-700">
           <svg class="fill-current h-5 w-5 dark:text-gray-300" viewBox="0 0 24 24">
             <path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2
@@ -44,7 +47,7 @@
         </a>
       </li>
 
-      <li class="mt-8">
+      <li *ngIf="dataUser.person.rol !== 'Asistente'" class="mt-8">
         <a routerLink="../users" class="flex hover:text-green-700">
           <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
             <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
