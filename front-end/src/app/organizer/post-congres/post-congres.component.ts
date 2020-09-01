@@ -15,18 +15,18 @@ export class PostCongresComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCongress();
+  //  this.getCongress();
   }
 
-  getCongress(){
-    return this.organizerService.getCongress().subscribe(
-      res =>{
-        this.congress = res;
-        console.log(this.congress)
-      },
-      err => console.error(err)
-    )
-  }
+  // getCongress(){
+  //   return this.organizerService.getCongress().subscribe(
+  //     res =>{
+  //       this.congress = res;
+  //       console.log(this.congress)
+  //     },
+  //     err => console.error(err)
+  //   )
+  // }
 
 }
 
