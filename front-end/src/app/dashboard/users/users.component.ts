@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {PersonService} from '../../services/person.service';
-import {Router} from '@angular/router';
 import Swal from "sweetalert2";
 
 @Component({
@@ -14,14 +13,16 @@ export class UsersComponent implements OnInit {
   users: any = [];
   status: boolean;
 
+  dataUserLog: any = []
+
   constructor(
     private personService: PersonService,
-    private router: Router
   ) {
   }
 
   ngOnInit() {
     this.getUsers()
+    this.getPersonByEmail()
   }
 
   getUsers() {
@@ -58,5 +59,14 @@ export class UsersComponent implements OnInit {
         }
       }
     );
+  }
+
+  getPersonByEmail() {
+    return this.personService.getUserByEmail(this.personService.email).subscribe(
+      res => {
+        this.dataUserLog = res
+      },
+      err => console.error(err)
+    )
   }
 }

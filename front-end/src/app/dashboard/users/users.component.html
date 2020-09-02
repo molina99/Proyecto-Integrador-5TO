@@ -36,7 +36,7 @@
           </thead>
           <tbody>
           <tr *ngFor="let user of users.persons" class="hover:bg-gray-100">
-            <td *ngIf="user.rol !== 'Organizador'"
+            <td *ngIf="user.rol !== 'Administrador'"
                 class="px-5 py-5 border-b border-gray-200 text-sm">
               <div class="flex items-center">
                 <div class="flex-shrink-0 w-10 h-10">
@@ -50,26 +50,28 @@
                 </div>
               </div>
             </td>
-            <td *ngIf="user.rol !== 'Organizador'"
+            <td *ngIf="user.rol !== 'Administrador'"
                 class="px-5 py-5 border-b border-gray-200 text-sm text-center">
               <p class="text-gray-900">{{user.dni}}</p>
             </td>
-            <td *ngIf="user.rol !== 'Organizador'"
+            <td *ngIf="user.rol !== 'Administrador'"
                 class="px-5 py-5 border-b border-gray-200 text-sm">
               <p class="text-gray-900">{{user.email}}</p>
             </td>
-            <td *ngIf="user.rol !== 'Organizador'"
-                class="px-5 py-5 border-b border-gray-200 text-sm">
+            <td *ngIf="user.rol !== 'Administrador'"
+                class="px-5 py-5 border-b border-gray-200 text-sm text-center">
               <p class="text-gray-900">
                 {{user.rol}}
               </p>
             </td>
-            <td *ngIf="user.rol !== 'Organizador'"
+            <td *ngIf="user.rol !== 'Administrador'"
                 class="px-5 py-5 border-b border-gray-200 text-sm text-center">
               <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input (click)="disableEnableUser(user._id, user.status = false)" type="checkbox" *ngIf="user.status == true" checked
+                <input (click)="disableEnableUser(user._id, user.status = false)" type="checkbox"
+                       *ngIf="user.status == true" checked
                        class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none focus:outline-none cursor-pointer"/>
-                <input (click)="disableEnableUser(user._id, user.status = true)" type="checkbox" *ngIf="user.status == false"
+                <input (click)="disableEnableUser(user._id, user.status = true)" type="checkbox"
+                       *ngIf="user.status == false"
                        class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none focus:outline-none cursor-pointer"/>
                 <label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300"></label>
               </div>
