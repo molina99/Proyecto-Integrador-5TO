@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {CongressesComponent} from './congresses/congresses.component';
 import {LinksComponent} from './links/links.component';
 import {PutCongressComponent} from './congresses/put-congress/put-congress.component';
+import {PostPostulationComponent} from './postulations/post-postulation/post-postulation.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {PutCongressComponent} from './congresses/put-congress/put-congress.compo
     PostulationsComponent,
     CongressesComponent,
     LinksComponent,
-    PutCongressComponent
+    PutCongressComponent,
+    PostPostulationComponent
   ],
   exports: [
     SidebarComponent
