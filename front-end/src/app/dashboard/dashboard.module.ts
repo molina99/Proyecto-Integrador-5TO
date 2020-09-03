@@ -8,6 +8,8 @@ import { PostulationsComponent } from './postulations/postulations.component';
 import {FormsModule} from "@angular/forms";
 import { CongressesComponent } from './congresses/congresses.component';
 import { LinksComponent } from './links/links.component';
+import { AssistantComponent } from '../dashboard/assistant/assistant.component';
+import { SpeakerComponent } from '../dashboard/speaker/speaker.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { LinksComponent } from './links/links.component';
     SidebarComponent,
     PostulationsComponent,
     CongressesComponent,
-    LinksComponent
+    LinksComponent,
+    AssistantComponent,
+    SpeakerComponent
   ],
     imports: [
         CommonModule,

@@ -1,10 +1,10 @@
-<div class="h-screen w-full flex overflow-hidden">
+<div class="h-screen w-full flex overflow-hidden" id="menu">
   <nav class="flex flex-col bg-gray-200 dark:bg-gray-900 w-64 px-12 pt-4 pb-6">
     <div class="flex flex-row border-b items-center pb-2">
-      <img class="h-12 w-12 rounded-full object-cover mr-3" src="/assets/img/dot-logo.png"/>
+      <img class="h-12 w-12 rounded-full object-cover mr-3" src="/assets/img/dot-logo.png" />
       <span class="text-lg font-semibold capitalize text-gray-800">
-				SCOC
-			</span>
+        SCOC
+      </span>
     </div>
 
     <div class="mt-1 text-center" style="display: none">
@@ -12,8 +12,8 @@
         Jose Molina
       </h2>
       <span class="text-sm font-semibold text-green-600 dark:text-green-300">
-					Administrador
-			</span>
+        Administrador
+      </span>
     </div>
 
     <ul class="mt-2 text-gray-700">
@@ -26,8 +26,8 @@
 							4h4v-4h-4M4 8h4V4H4v4z"></path>
           </svg>
           <span class="ml-2 capitalize font-medium">
-						Congreso
-					</span>
+            Congreso
+          </span>
         </a>
       </li>
 
@@ -39,22 +39,62 @@
 							00-2-2h-1V1m-1 11h-5v5h5v-5z"></path>
           </svg>
           <span class="ml-2 capitalize font-medium">
-						Postulaciones
-					</span>
+            Postulaciones
+          </span>
         </a>
       </li>
 
-      <li class="mt-8">
-        <a routerLink="../users" class="flex hover:text-green-700">
-          <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
-            <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
-							014-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4
-							8-4z"></path>
-          </svg>
-          <span class="ml-2 capitalize font-medium">
-            Usuarios
-          </span>
-        </a>
+      <li id="item" class="mt-8">
+        <button>
+          <a routerLink="../users" class="flex hover:text-green-700" href="#">
+            <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+              <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
+                014-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4
+                8-4z"></path>
+            </svg>
+            <span class="ml-2 capitalize font-medium ">
+              Usuarios
+            </span>
+          </a>
+        </button>
+         <!-- prueba del menu despeable -->
+         <ul id="desple">
+          <!-- <li>
+            <a href="#">servicio</a>
+          </li> -->
+
+          <li class="mt-8">
+            <button>
+              <a routerLink="../assistant" class="flex hover:text-green-700" href="#">
+                <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+                  <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
+                      014-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4
+                      8-4z"></path>
+                </svg>
+                <span class="ml-2 capitalize font-medium">
+                  Asistente
+                </span>
+              </a>
+            </button>
+
+          </li>
+
+          <li class="mt-8">
+            <button>
+              <a routerLink="../speaker" class="flex hover:text-green-700" href="#">
+                <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+                  <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
+                    014-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4
+                    8-4z"></path>
+                </svg>
+                <span class="ml-2 capitalize font-medium">
+                  Ponente
+                </span>
+              </a>
+            </button>
+          </li>
+          
+        </ul>
       </li>
 
       <li class="mt-8">
@@ -65,10 +105,45 @@
 							9v2h-4v-2h4m2-2h-8v6h8v-6z"></path>
           </svg>
           <span class="ml-2 capitalize font-medium">
-						Enlaces
-					</span>
+            Enlaces
+          </span>
         </a>
       </li>
+
+      <!-- prueba de listas -->
+      <!-- <ul class="submenu">
+        <li class="mt-8">
+          <button>
+            <a routerLink="../assistant" class="flex hover:text-green-700" href="#">
+              <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+                <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
+                  014-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4
+                  8-4z"></path>
+              </svg>
+              <span class="ml-2 capitalize font-medium">
+                Asistente
+              </span>
+            </a>
+          </button>
+
+        </li>
+
+        <li class="mt-8">
+          <button>
+            <a routerLink="../speaker" class="flex hover:text-green-700" href="#">
+              <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+                <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
+                  014-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4
+                  8-4z"></path>
+              </svg>
+              <span class="ml-2 capitalize font-medium">
+                Ponente
+              </span>
+            </a>
+          </button>
+        </li>
+      </ul> -->
+
 
     </ul>
 

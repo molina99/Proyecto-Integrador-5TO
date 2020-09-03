@@ -13,6 +13,9 @@ import {RegisterSpeakerComponent} from './register-speaker/register-speaker.comp
 import {PageNotFoundComponent} from './home/page-not-found/page-not-found.component';
 import {RegisterReviewerComponent} from './register-reviewer/register-reviewer.component';
 import { RegisterAssistantComponent } from './register-assistant/register-assistant.component';
+import { PruebavistaComponent } from './pruebavista/pruebavista.component';
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { RegisterAssistantComponent } from './register-assistant/register-assist
     RegisterSpeakerComponent,
     PageNotFoundComponent,
     RegisterReviewerComponent,
-    RegisterAssistantComponent
+    RegisterAssistantComponent,
+    PruebavistaComponent
   ],
   imports: [
     BrowserModule,
