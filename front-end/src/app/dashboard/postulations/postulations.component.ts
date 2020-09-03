@@ -12,6 +12,8 @@ export class PostulationsComponent implements OnInit {
   postulations: any = [];
   userById: any = [];
   personId: any;
+  dataUser: any = [];
+  projectsSpeaker: any = [];
 
   constructor(
     private postulationService: PostulationService,
@@ -20,7 +22,8 @@ export class PostulationsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPostulations()
+    this.getUserByEmail();
+    this.getPostulations();
   }
 
   getUserById(id: string) {
@@ -38,6 +41,9 @@ export class PostulationsComponent implements OnInit {
         this.postulations = res;
         this.postulations.postulations.forEach(element => {
             this.getUserById(element.person_id)
+            if (element.person_id == this.dataUser.person._id) {
+              this.projectsSpeaker.push(element)
+            }
           }
         )
       },
@@ -47,5 +53,14 @@ export class PostulationsComponent implements OnInit {
 
   getUserId(id: string) {
     this.personId = id
+  }
+
+  getUserByEmail() {
+    return this.personService.getUserByEmail(this.personService.email).subscribe(
+      res => {
+        this.dataUser = res
+      },
+      err => console.error(err)
+    )
   }
 }

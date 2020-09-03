@@ -2,14 +2,27 @@
 
   <app-sidebar></app-sidebar>
 
-  <div class="mx-12 my-2 overflow-auto">
-    <h2 class="py-4 text-2xl font-semibold text-gray-800 border-b">
+  <div class="w-full mx-12 my-2 overflow-auto">
+    <h2 *ngIf="dataUser.person.rol !== 'Ponente'" class="py-4 text-2xl font-semibold text-gray-800 border-b">
       Lista de Postulaciones
     </h2>
+    <div class="flex border-b justify-between" *ngIf="dataUser.person.rol == 'Ponente'">
+      <div>
+        <h2 class="py-4 text-2xl font-semibold text-gray-800">
+          Lista de proyectos
+        </h2>
+      </div>
+      <div class="">
+        <button
+          class="focus:outline-none py-5 text-center text-gray-700 bg-white hover:text-black font-medium"
+        ><i class="fa fa-plus pr-2"></i>Generar proyecto
+        </button>
+      </div>
+    </div>
 
     <div class="py-6">
       <div class="inline-block shadow rounded-lg">
-        <table>
+        <table *ngIf="projectsSpeaker.length > 0 && dataUser.person.rol == 'Ponente' || dataUser.person.rol == 'Organizador'">
           <thead>
           <tr class="border-b-2 border-gray-200 bg-gray-200">
             <th class="px-5 py-3 text-left text-sm text-gray-600 text-center">
@@ -21,12 +34,13 @@
             <th class="px-5 py-3 text-left text-sm text-gray-600 text-center">
               Área de conocimiento
             </th>
-            <th class="px-5 py-3 text-left text-sm text-gray-600 text-center">
+            <th *ngIf="dataUser.person.rol !== 'Ponente'" class="px-5 py-3 text-left text-sm text-gray-600 text-center">
               Acciones
             </th>
           </tr>
           </thead>
-          <tbody>
+          <!--   BODY FOR ADMIN AND ORGANIZER   -->
+          <tbody *ngIf="dataUser.person.rol !== 'Ponente'">
           <tr *ngFor="let postulation of postulations.postulations" class="border-b border-gray-200 hover:bg-gray-100">
             <td class="px-1 py-5 text-sm text-center">
               <p class="text-gray-900">{{postulation.title_project}}</p>
@@ -37,21 +51,44 @@
             <td class="px-5 py-5e text-sm text-center">
               <p class="text-gray-900">{{postulation.knowledge_area}}</p>
             </td>
-            <td class="px-5 py-5 flex-1 text-sm text-center">
+            <td *ngIf="dataUser.person.rol !== 'Ponente'" class="px-5 py-5 flex-1 text-sm text-center">
               <button (click)="getUserId(postulation.person_id)"
                       onclick="document.getElementById('myModal').showModal()" id="btn"
                       class="tooltip appearance-none focus:outline-none mr-2">
                 <i class="fas fa-address-book text-blue-800 text-xl"></i>
                 <span class="tooltiptext">Datos del autor</span>
               </button>
-<!--              <button class="tooltip appearance-none focus:outline-none ml-2">-->
-<!--                <i class="fas fa-file-invoice text-green-700 text-xl"></i>-->
-<!--                <span class="tooltiptext">Archivo adjunto</span>-->
-<!--              </button>-->
+              <!--              <button class="tooltip appearance-none focus:outline-none ml-2">-->
+              <!--                <i class="fas fa-file-invoice text-green-700 text-xl"></i>-->
+              <!--                <span class="tooltiptext">Archivo adjunto</span>-->
+              <!--              </button>-->
             </td>
           </tr>
           </tbody>
+          <!--   TBODY FOR SPEAKER   -->
+          <tbody *ngIf="dataUser.person.rol == 'Ponente'">
+          <tr *ngFor="let project of projectsSpeaker" class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="px-1 py-5 text-sm text-center">
+              <p class="text-gray-900">{{project.title_project}}</p>
+            </td>
+            <td class="px-5 py-5 text-sm text-justify">
+              <p class="text-gray-900 ">{{project.summary_project}}</p>
+            </td>
+            <td class="px-5 py-5e text-sm text-center">
+              <p class="text-gray-900">{{project.knowledge_area}}</p>
+            </td>
+            <!--            <td class="px-5 py-5 flex-1 text-sm text-center">-->
+            <!--              <button class="tooltip appearance-none focus:outline-none ml-2">-->
+            <!--                <i class="fas fa-file-invoice text-green-700 text-xl"></i>-->
+            <!--                <span class="tooltiptext">Archivo adjunto</span>-->
+            <!--              </button>-->
+            <!--            </td>-->
+          </tr>
+          </tbody>
         </table>
+      </div>
+      <div *ngIf="projectsSpeaker.length == 0 && dataUser.person.rol == 'Ponente'" class="w-full text-center">
+        <p class="font-thin">No hay proyectos para mostrar</p>
       </div>
     </div>
   </div>
