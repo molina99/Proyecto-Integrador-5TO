@@ -10,6 +10,9 @@ import {CongressesComponent} from './congresses/congresses.component';
 import {LinksComponent} from './links/links.component';
 import {PutCongressComponent} from './congresses/put-congress/put-congress.component';
 import {PostPostulationComponent} from './postulations/post-postulation/post-postulation.component';
+import {SpeakersComponent} from './users/speakers/speakers.component';
+import {ParticipantsComponent} from './users/participants/participants.component';
+import {PostLinkComponent} from './links/post-link/post-link.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import {PostPostulationComponent} from './postulations/post-postulation/post-pos
     CongressesComponent,
     LinksComponent,
     PutCongressComponent,
-    PostPostulationComponent
+    PostPostulationComponent,
+    SpeakersComponent,
+    ParticipantsComponent,
+    PostLinkComponent
   ],
   exports: [
     SidebarComponent

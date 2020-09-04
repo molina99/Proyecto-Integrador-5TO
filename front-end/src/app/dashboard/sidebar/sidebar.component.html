@@ -1,4 +1,4 @@
-<div class="h-screen w-full flex overflow-hidden">
+<div id="menu" class="h-screen w-full flex overflow-hidden">
   <nav class="flex flex-col bg-gray-200 dark:bg-gray-900 w-64 px-12 pt-4 pb-6">
     <div class="flex flex-row border-b items-center pb-2">
       <img class="h-12 w-12 rounded-full object-cover mr-3" src="/assets/img/dot-logo.png"/>
@@ -50,13 +50,44 @@
         </a>
       </li>
 
-      <li *ngIf="dataUser.person.rol !== 'Asistente' && dataUser.person.rol !== 'Ponente'" class="mt-8">
+      <li id="item" *ngIf="dataUser.person.rol !== 'Asistente' && dataUser.person.rol !== 'Ponente'" class="mt-8">
         <a routerLink="../users" class="flex hover:text-green-700">
           <i class="fa fa-users h-5 w-5 mt-1"></i>
           <span class="ml-2 capitalize font-medium">
             Usuarios
           </span>
         </a>
+
+        <ul id="desple">
+
+          <li class="mt-4 ml-6">
+            <a routerLink="../participants" class="flex hover:text-green-700" href="#">
+              <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+                <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
+                      014-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4
+                      8-4z"></path>
+              </svg>
+              <span class="ml-2 capitalize font-medium">
+                  Asistentes
+                </span>
+            </a>
+          </li>
+
+          <li class="mt-4 ml-6">
+            <a routerLink="../speakers" class="flex hover:text-green-700" href="#">
+              <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+                <path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0
+                    014-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4
+                    8-4z"></path>
+              </svg>
+              <span class="ml-2 capitalize font-medium">
+                  Ponentes
+                </span>
+            </a>
+          </li>
+
+        </ul>
+
       </li>
 
       <li class="mt-8">
