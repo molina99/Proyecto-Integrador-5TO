@@ -42,7 +42,7 @@ export class RegisterSpeakerComponent implements OnInit {
       }
       let pathEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
       let pathOnlyLetters = /^[ñA-ZñÑáéíóúÁÉÍÓÚa-z _]*$/
-      let pathPhone = /^[0-9]{2}[0-9]{8}$/
+      let pathPhone = /^0[0-9]{1}[0-9]{8}$/
       let pathLettersAndInt = /^[A-Z0-9]{10}$/
       let validateEmail = pathEmail.test(dataPerson.person.email)
       let validateNames = pathOnlyLetters.test(dataPerson.person.names)

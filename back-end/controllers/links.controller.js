@@ -2,6 +2,24 @@
 'use strict'
 const Links = require('../models/Links')
 
+let getLinkById = async (req, res) => {
+    let id = req.params.id
+    let link = await Links.findById({_id: id})
+    if (link) {
+        res.status(200).json({
+            ok: true,
+            link
+        })
+    } else if (link.length === 0) {
+        res.send('El enlace no existe en el sistema')
+    } else {
+        res.status(500).json({
+            ok: false,
+            data: null
+        })
+    }
+}
+
 let getLinks = async (req, res) => {
     let links = await Links.find()
     if (links) {
@@ -69,10 +87,10 @@ let deleteLink = async (req, res) => {
             data: null
         })
     }
-
 }
 
 module.exports = {
+    getLinkById,
     getLinks,
     postLink,
     putLink,

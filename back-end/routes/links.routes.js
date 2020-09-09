@@ -7,6 +7,7 @@ let api = express.Router();
 const linksController = require('../controllers/links.controller')
 const authenticate = require('../middlewares/authenticate');
 
+api.get('/getLinkById/:id', [authenticate.tokenAuth], linksController.getLinkById)
 api.get('/getLinks', [authenticate.tokenAuth], linksController.getLinks)
 api.post('/postLink', [authenticate.tokenAuth], linksController.postLink)
 api.put('/putLink/:id', [authenticate.tokenAuth], linksController.putLink)

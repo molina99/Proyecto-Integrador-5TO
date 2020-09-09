@@ -27,6 +27,10 @@ export class PersonService {
     return this.http.post(`${this.url}/postPerson`, person);
   }
 
+  putPerson(id: string, person: object) {
+    return this.http.put(`${this.url}/putPerson/${id}`, person, this.server.obtainHeaders())
+  }
+
   getUserById(id: string) {
     return this.http.get(`${this.url}/getPersonById/${id}`, this.server.obtainHeaders());
   }

@@ -13,6 +13,8 @@ import {PostPostulationComponent} from './postulations/post-postulation/post-pos
 import {SpeakersComponent} from './users/speakers/speakers.component';
 import {ParticipantsComponent} from './users/participants/participants.component';
 import {PostLinkComponent} from './links/post-link/post-link.component';
+import {PutLinkComponent} from './links/put-link/put-link.component';
+import {PutUserComponent} from './users/put-user/put-user.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {PostLinkComponent} from './links/post-link/post-link.component';
     PostPostulationComponent,
     SpeakersComponent,
     ParticipantsComponent,
-    PostLinkComponent
+    PostLinkComponent,
+    PutLinkComponent,
+    PutUserComponent
   ],
   exports: [
     SidebarComponent

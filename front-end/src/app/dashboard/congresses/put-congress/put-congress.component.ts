@@ -58,11 +58,11 @@ export class PutCongressComponent implements OnInit {
 
   putCongress(idCongress) {
     if (this.modelCongress.name && this.modelCongress.address_web && this.modelCongress.start_date && this.modelCongress.end_date && this.modelCongress.regulations && this.modelCongress.capacity_speakers > 0 && this.modelCongress.capacity_participants > 0) {
+      this.modelCongress.start_date = this.modelCongress.start_date + 'T10:00:00.000+00:00'
+      this.modelCongress.end_date = this.modelCongress.end_date + 'T15:00:00.000+00:00'
       let dataCongress = {
         congress: this.modelCongress
       }
-      console.log(idCongress)
-      console.log(dataCongress)
       this.congressService.putCongress(idCongress, dataCongress)
         .subscribe(
           res => {
@@ -79,6 +79,14 @@ export class PutCongressComponent implements OnInit {
             console.error(err);
           }
         );
+    } else {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Debes completar todos los datos',
+        showConfirmButton: false,
+        timer: 1500
+      });
     }
   }
 }

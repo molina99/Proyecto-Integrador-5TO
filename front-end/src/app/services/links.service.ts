@@ -15,7 +15,23 @@ export class LinksService {
     this.url = server.obtainUrl();
   }
 
+  getLinkById(id: string) {
+    return this.http.get(`${this.url}/getLinkById/${id}`, this.server.obtainHeaders())
+  }
+
   getLinks() {
     return this.http.get(`${this.url}/getLinks`, this.server.obtainHeaders());
+  }
+
+  postLink(link: object) {
+    return this.http.post(`${this.url}/postLink`, link, this.server.obtainHeaders())
+  }
+
+  putLink(id: string, link: object) {
+    return this.http.put(`${this.url}/putLink/${id}`, link, this.server.obtainHeaders())
+  }
+
+  deleteLink(id: string) {
+    return this.http.delete(`${this.url}/deleteLink/${id}`, this.server.obtainHeaders())
   }
 }

@@ -46,22 +46,34 @@ export class PostPostulationComponent implements OnInit {
       let dataPostulation = {
         postulation: this.postulation
       }
-      this.postulationService.postPostulation(dataPostulation)
-        .subscribe(
-          res => {
-            Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: 'Registro Exitoso',
-              showConfirmButton: false,
-              timer: 1500
-            });
-            this.router.navigate(['/dashboard/postulations']);
-          },
-          err => {
-            console.error(err);
-          }
-        );
+      Swal.fire({
+        title: '¿Está seguro de generar el proyecto?',
+        text: "¡No podrá editarlo una vez generado!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Enviar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.postulationService.postPostulation(dataPostulation)
+            .subscribe(
+              res => {
+                this.router.navigate(['/dashboard/postulations']);
+              },
+              err => {
+                console.error(err);
+              }
+            );
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '¡Registro Exitoso!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      })
     } else {
       Swal.fire({
         position: 'top-end',
